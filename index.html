@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Camilo Café Artesanal</title>
     <base href="/camilo-cafe/">
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="App de gestión para Camilo Café Artesanal">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="favicon.png" />
   </head>
   <body>
     <script src="flutter.js" defer></script>
     <script>
       window.addEventListener("load", function () {
+        if (!_flutter.buildConfig) {
+          _flutter.buildConfig = {
+            buildDirectory: "",
+            builds: [{
+              entrypointUrl: "main.dart.js",
+              baseUrl: "",
+              compileTarget: "dart2js",
+              renderer: "canvaskit"
+            }]
+          };
+        }
+
         _flutter.loader.load({
           onEntrypointLoaded: function (engineInitializer) {
             engineInitializer.initializeEngine().then(function (appRunner) {
@@ -25,3 +35,4 @@
     </script>
   </body>
 </html>
+
